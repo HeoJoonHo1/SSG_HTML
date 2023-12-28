@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+#demo{
+	background-color: blue; 
+}
+</style>
+
+</head>
+<body>
+
+<!-- id class name -->
+
+<!-- getElementsByTagName --> 
+
+<p>hello</p>
+
+<p>world</p>
+
+<p>I can do it</p>
+
+<script type="text/javascript">
+	let str = document.getElementsByTagName("p")[1].innerHTML;
+	console.log(str);
+	
+//	document.getElementsByTagName("p")[2].innerText = "나는 문제 없어";
+	
+	let arrPtag = document.getElementsByTagName("p");
+//	console.log(arrPtag[0].innerHTML);
+	
+	for(let i = 0;i < arrPtag.length; i++){
+		console.log(arrPtag[i].innerHTML);
+	}
+</script>
+
+
+<!-- getElementById -->
+<!-- 일반(출력)태그 -->
+
+<p id="demo">나는 반드시 <b>성공</b>한다</p>
+
+<h3 id="demo">내일의 희망이 뜬다</h3>
+
+<script type="text/javascript">
+
+//	let demo = document.getElementById("demo").innerHTML;
+	let demo = document.getElementById("demo").innerText;	// getter
+	console.log(demo);
+	
+	document.getElementById("demo").innerText = "Naver change my mind";		// setter
+
+</script>
+
+<!-- 입출력태그 -->
+<input type="text" id="iopro" size="20" placeholder="입력" value="초기값"/>
+
+<select id="fruit">
+	<option value="apple">사과</option>
+	<option value="banana">바나나</option>
+	<option value="pear">배</option>
+</select>
+
+<script type="text/javascript">
+	
+	let iopro = document.getElementById("iopro").value;
+	console.log(iopro);
+	
+	document.getElementById("iopro").value = "반갑습니다";
+	
+	
+	let fruit = document.getElementById("fruit").value;
+	console.log(fruit);
+	
+	document.getElementById("fruit").value = "pear";
+	
+</script>
+
+<br/><br/> 
+
+<!-- 
+getElementsByName
+getElementsByClassName
+ -->
+
+<input type="text" class="cls" size="20" placeholder="이름" value="홍길동"/><br/> 
+
+<input type="text" class="cls" size="20" placeholder="주소" value="부산시"/><br/>
+ 
+<input type="text" class="cls" size="20" placeholder="이메일" value="abc@abc"/><br/>
+
+<script type="text/javascript">
+
+	let human = document.getElementsByClassName("cls")[1].value;
+	console.log(human);
+	
+	human = document.getElementsByClassName("cls");
+	console.log(human.length);
+	for(let i = 0;i < human.length ; i++){
+		console.log(i + ": " + human[i].value);
+	}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
