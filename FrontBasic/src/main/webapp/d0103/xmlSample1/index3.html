@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if(this.readyState == 4 && this.status == 200){
+		// nodeValue(this);
+		// nodeName(this);
+		childNode(this);
+	}	
+}
+xhttp.open("GET", "http://localhost:8080/FrontBasic/d0103/xmlSample1/client.xml", true);
+xhttp.send();
+
+function nodeValue( xhttp ) {
+	let number, name;
+	let numbertxt, nametxt;
+	let xmlDoc;
+	
+	numbertxt = nametxt = "";
+	
+	xmlDoc = xhttp.responseXML;
+	console.log(xmlDoc);	// object
+	
+	number = xmlDoc.getElementsByTagName("번호");
+	name = xmlDoc.getElementsByTagName("이름");
+	console.log(number);
+	console.log(number.length);
+	
+	for(i = 0;i < number.length; i++){
+		numbertxt += number[i].childNodes[0].nodeValue + "<br/>";
+		nametxt += name[i].childNodes[0].nodeValue + "<br/>";
+	}
+	
+	document.getElementById("demo").innerHTML = numbertxt + nametxt;	
+}
+
+function nodeName( xhttp ) {
+	let arr, txt;
+	let xmlDoc;
+	
+	txt = "";
+	
+	xmlDoc = xhttp.responseXML;
+	// arr = xmlDoc.documentElement.childNodes;	// root
+	arr = xmlDoc.getElementsByTagName("고객")[0].childNodes;	// 고객
+	console.log(arr);
+	
+	for(i = 0;i < arr.length; i++){
+	//	console.log(arr[i].nodeType);
+	//	console.log(arr[i].nodeName);
+		if(arr[i].nodeType == 1){
+			txt += arr[i].nodeName + "<br/>";
+		}
+	}
+	
+	document.getElementById("demo").innerHTML = txt;
+}
+
+function childNode( xhttp ) {
+	let arr, txt;
+	let xmlDoc;
+	
+	txt = "";
+	
+	xmlDoc = xhttp.responseXML;
+	
+	arr = xmlDoc.getElementsByTagName("고객")[0];
+	let len = arr.childNodes.length;
+	console.log(len);
+	
+	let fchild = arr.firstChild;
+	
+	for(i = 0;i < len; i++){
+		if(fchild.nodeType == 1){
+			txt += i + " " + fchild.nodeName + "<br/>";
+		}
+		fchild = fchild.nextSibling;
+	}
+	
+	document.getElementById("demo").innerHTML = txt;
+}
+
+
+
+
+/*
+function childNode(xhttp) {
+    let xmlDoc = xhttp.responseXML;
+    let customers = xmlDoc.getElementsByTagName("고객");
+
+    let result = "";
+    
+    for (let i = 0; i < customers.length; i++) {
+        let customer = customers[i];
+        let number = customer.getElementsByTagName("번호")[0].textContent;
+        let name = customer.getElementsByTagName("이름")[0].textContent;
+        let address = customer.getElementsByTagName("주소")[0].textContent;
+        let visitDate = customer.getElementsByTagName("방문")[0].textContent;
+
+        result += number + " " + name + " " + address + " " + visitDate + " <br/>";
+    }
+
+    document.getElementById("demo").innerHTML = result;
+}
+*/
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
