@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>다음 생일까지 남은 일수</h1>
+다음 버튼을 클릭하여 생일을 입력하면,<br/>
+다음 생일까지 남은 일수를 볼 수 있습니다.(prompt를 사용)
+<br/><br/>
+
+<button type="button" onclick="birth()">생일을 입력</button>
+<br/><br/>
+
+남은 일수: <span id="days"></span>
+
+<script type="text/javascript">
+function birth() {
+	// alert('');	// 출력
+	// prompt('제목');	// 입력
+	let birthMonth = prompt("생일 월을 입력해 주십시오(1 ~ 12)");
+	let birthDay = prompt("생일 날짜를 입력해 주십시오(1 ~ 31)");
+	// alert(birthMonth + "/" + birthDay);
+	
+	// 현재 날짜와 비교
+	let today = new Date();		// 오늘
+	let mybitrh = new Date();	// 내생일
+	
+	// 자신의 생일을 저장
+	mybitrh.setMonth(birthMonth - 1);	// 0 ~ 11
+	mybitrh.setDate(birthDay);
+	
+	//				자신의 생일		    오늘	
+	let mSecond = mybitrh.getTime() - today.getTime();
+	// alert(mSecond);		-값이 나오는 경우는 지난 경우
+	
+	// 생일이 지난 경우
+	if(mSecond <= 0){
+		let birthYear = mybitrh.getFullYear(); 
+		mybitrh.setFullYear(birthYear + 1);		// 다음연도
+		
+		mSecond = mybitrh.getTime() - today.getTime();
+	}
+	
+	let days = mSecond / (24 * 60 * 60 * 1000);
+	
+	document.getElementById("days").innerHTML = days;
+}
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+

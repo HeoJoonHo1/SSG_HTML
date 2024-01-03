@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body bgcolor="">
+
+<h1>배경 화면의 설정</h1>
+
+<br/>
+
+<button type="button" onclick="document.bgColor='red'">빨강</button>
+
+<button type="button" onclick="document.body.style.backgroundColor='#00ff00'">초록</button>
+
+<button type="button" onclick="ColorSet('파랑')">파랑</button>
+
+<button type="button" onclick="ColorSet('노랑')">노랑</button>
+
+<script type="text/javascript">
+function ColorSet( color ) {
+	if(color === "파랑"){
+		document.body.style.backgroundColor='#0000ff';
+	}	
+	else if(color === "노랑"){
+		document.body.style.backgroundColor='yellow';
+	}
+}
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
