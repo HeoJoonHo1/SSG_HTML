@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if(this.readyState == 4 && this.status == 200){
+		jsonFunc( this );
+	}
+}
+xhttp.open("GET", "./client.json", true);
+xhttp.send();
+
+function jsonFunc( xhttp ) {
+	//	alert( xhttp.responseText );
+	
+	let json = JSON.parse(xhttp.responseText);
+	alert( json );
+	alert( JSON.stringify(json) );
+	// alert( json.length );	
+		
+	let txt = "";
+	
+	txt += json.server + "<br/>";
+	
+	for(i = 0;i < json.client.length; i++){
+		txt += 	json.client[i].name + " " +
+				json.client[i].age + " " +
+				json.client[i].address + " " +
+				json.client[i].phone + "<br/>";		
+	}
+	
+	document.getElementById("demo").innerHTML = txt;
+	
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

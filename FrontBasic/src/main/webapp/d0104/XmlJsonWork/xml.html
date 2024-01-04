@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="movies">
+</div>
+
+<script type="text/javascript">
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if(this.readyState == 4 && this.status == 200){
+		xmlFunc( this );
+	}
+}
+xhttp.open("GET", "./movie.xml", true);		// == ajax
+xhttp.send();
+
+function xmlFunc( xhttp ) {
+	let xmlDoc = xhttp.responseXML;
+	// alert(xmlDoc);
+	
+	// root(tag) 취득
+	let rootTagName = xmlDoc.documentElement.nodeName;
+	// alert(rootTagName);
+	
+	// node 명을 취득
+	let nodeNameArr = xmlDoc.documentElement.childNodes;
+	// alert(nodeNameArr);
+	
+	// node list를 확인
+	let nodeName;
+	for(i = 0;i < nodeNameArr.length; i++){
+		if(nodeNameArr[i].nodeType == 1){
+			nodeName = nodeNameArr[i].nodeName;
+			console.log(nodeName);
+		}
+	}
+	
+	// table 준비
+	let out = "<table border='1'>";
+	out += "<col width='50'><col width='100'><col width='100'><col width='100'><col width='100'>"
+	out += "<tr>";
+	out += "	<th>번호</th>";
+	
+	// column 명을 취득
+	columnName = xmlDoc.getElementsByTagName( nodeName )[0];	
+	
+	let child = columnName.firstChild;
+	// alert(columnName.childNodes.length);		// 9
+	for(i = 0;i < columnName.childNodes.length; i++){
+		if(child.nodeType == 1){
+			out += "<th>" + child.nodeName + "</th>";
+			console.log(child.nodeName);
+		}		
+		child = child.nextSibling;
+	}
+	
+	out += "</tr>";
+	
+	// data 출력
+	let len = xmlDoc.getElementsByTagName( nodeName ).length;
+	// alert(len);
+	
+	for(i = 0;i < len; i++){
+		out += "<tr>";
+		out += "<th>" + (i + 1) + "</th>";
+		
+		let dataArr = xmlDoc.getElementsByTagName( nodeName )[i];
+		
+		child = dataArr.firstChild;		
+		for(j = 0;j < dataArr.childNodes.length; j++){
+			if(child.nodeType == 1){
+				out += "<td>" + child.childNodes[0].nodeValue + "</td>";
+			}
+			child = child.nextSibling;
+		}	
+		
+		out += "</tr>";
+	}	
+	
+	document.getElementById("movies").innerHTML = out;
+	
+	
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+

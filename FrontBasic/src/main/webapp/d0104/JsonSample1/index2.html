@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if(this.readyState == 4 && this.status == 200){
+		jsonFunc( this );
+	}
+}
+xhttp.open("GET", "./NBAjson.json", true);
+xhttp.send();
+
+function jsonFunc( xhttp ) {
+	
+	let str = xhttp.responseText;
+	// alert(str);
+	
+	let json = JSON.parse(str);
+	
+	document.getElementById("demo").innerHTML 
+	//	= json.quiz.sport.q1.question;
+	//	= json.quiz["sport"].q1.question;
+	
+	//	= json.quiz.sport.q1.options[2];
+	
+	//	= json.quiz.maths.q1.answer;
+		= json.quiz["maths"].q1.answer;
+}
+
+
+// 서울 열린광장
+// https://data.seoul.go.kr/dataList/OA-12912/S/1/datasetView.do
+
+// 부산 데이터셋
+// https://data.busan.go.kr/dataSet/list.nm
+
+// 영화진흥공사
+// https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
+
+// 키가 숫자일 경우
+// "2012":"28673",
+// document.getElementById("demo").innerHTML = json["2012"];		// 28673
+
+	
+	
+</script>
+
+</body>
+</html>
+
