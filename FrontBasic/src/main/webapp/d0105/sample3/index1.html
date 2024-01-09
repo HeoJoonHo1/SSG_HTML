@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body onload="">
+
+<div id="news">로딩중...</div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	/* $("#news").load("news.txt", function (txt, status) {
+		alert(txt);
+	}); */
+	
+	$("#news").load("default.html", function (txt, status) {
+		alert(txt);
+	})
+});
+</script>
+
+
+</body>
+</html>
+
+
+
+

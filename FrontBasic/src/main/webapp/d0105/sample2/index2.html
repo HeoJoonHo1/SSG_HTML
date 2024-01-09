@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style type="text/css">
+.mycss{
+	color: #ffff00;
+}
+</style>
+
+</head>
+<body>
+
+<p>hello</p>
+
+<p id="demo">world</p>
+
+<button type="button">button</button>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	$("button").click(function () {
+		
+		// setter
+		$("p").css("background", "#0000ff");
+		
+		// getter
+		let bcolor = $("p").css("background");
+		// alert(bcolor);
+	
+		
+	//	$('p').attr('id', 'pid');
+	//	let id = $('p').attr('id');
+	
+	//	document.getElementById('demo').setAttribute('id', 'pid');	// setter
+	//	let id = document.getElementById('demo').getAttribute('id');	// getter
+		
+	
+	
+	//	$('p').attr('class', 'mycss');
+	//	$('p').addClass('mycss');
+		
+	//	$('p').removeClass('mycss');
+	
+		$('p').prop('class', 'mycss');
+		
+		// html(), text(), val(), css(), attr(), prop()		
+	});
+	
+});
+</script>
+
+</body>
+</html>
+
+
+
+

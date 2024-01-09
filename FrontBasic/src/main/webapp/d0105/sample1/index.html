@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+
+<script src="./jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- 
+		Java Script : 	client(front-end)
+						화면의 resource와 값을 취득, 설정.
+						DOM(getElementById, getElementsByTagName...)
+						
+									node.js
+						anguler,  react, vue		
+		CSS : 디자인
+		
+		Jquery : Java Script를 경량화, 간략화
+				 비동기통신(ajax)
+				 
+		Jquery-UI : resource(button, input, slide, Datepicker)	
+		
+		형식:
+			$( tag or #id or .class or name ).함수명(매개변수)
+			
+			document.getElementById("id").value = "abc";		<- setter
+			$("#id").val( "abc" );				
+			
+			let v = document.getElementById("id").value;		<- getter
+			let v = $("#id").val();	
+			
+			innerHTML == html()
+			innerText == text()
+			value == val()
+ -->
+
+<p>여기가 p 태그입니다</p>
+
+<p id="demo">p tag id=demo</p>
+
+<p class="cls">p tag class=cls</p>
+
+<h3 class="cls">h3 tag class=cls</h3>
+
+
+
+<script type="text/javascript">
+// Java Script
+/*
+let arrPtag = document.getElementsByTagName("p");
+for(i = 0;i < arrPtag.length; i++){
+	arrPtag[i].innerHTML = "hello p tag";
+}
+*/
+
+$(document).ready(function(){
+	
+//	$("p").html("안녕하세요 p tag");	// innerHTML	
+//	$("p").text("하이 p tag");		// innerText
+
+//	document.getElementById("demo").innerHTML = "<b>안녕하세요</b> p tag";	
+//	$("p").html("<b>안녕하세요</b> p tag");		// setter
+//	$("p").text("<b>안녕하세요</b> p tag");
+	
+//	let demo = $("#demo").html();				// getter
+//	console.log(demo);
+
+	let ptag = $("p").text();
+	console.log(ptag);
+	console.log(ptag[0]);		// 여
+	console.log(ptag.length);	// 39
+	
+//	$("#demo").html("건강하세요");		// setter
+
+	$(".cls").html("모두 새해 복 많이 받으세요");		// setter
+	
+	let cls = $(".cls").html();		// getter
+	alert(cls);
+	
+});
+
+
+
+</script>
+  
+
+
+</body>
+</html>
+
+
+
+

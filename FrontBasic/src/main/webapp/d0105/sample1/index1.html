@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- 
+<p id="ptag">p tag id=ptag</p>
+
+<p onclick="pclick()">p click</p>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+
+$("#ptag").click(function(){
+	alert("p tag click");
+});
+
+function pclick() {
+	alert("pclick");
+}
+</script>
+ -->
+ 
+ 
+<!-- 
+<button type="button">button</button>
+
+<button type="button" id="btn">id button</button>
+
+<input type="button" id="btn" value="id button"/>
+
+<br/><br/>
+
+<button type="button" class="btn">cls button</button>
+
+<input type="button" class="btn" value="cls button"/>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+ 
+$(document).ready(function () {	// 문서가 준비되면 호출해라
+	
+});
+ 
+$(function () {		// 무조건 호출	
+	 
+	$("button").click(function () {
+		alert("button click");
+	}); 
+	
+	
+	$("#btn").click(function () {
+		alert("id btn click");
+	});
+	
+	$(".btn").click(function () {
+		alert("class btn click");
+	});
+});
+
+</script>
+  -->
+  
+
+<button type="button" id="btn">id button</button>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	/*
+	$("#btn").click(function () {
+		alert('id button click');
+	});
+	*/
+	
+	/* 
+	$("#btn").on("click", function () {
+		alert('id button on click');
+	});
+	 */
+	 
+	$("#btn").on("click", btnFunc);
+	 
+});
+
+function btnFunc() {
+	alert('btnFunc() 호출');
+}
+
+</script>
+
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

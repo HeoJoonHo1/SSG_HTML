@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<!-- radio -->
+<ul type="none">
+	<li><input type="radio" name="fruit" value="사과" checked="checked">사과</li>
+	<li><input type="radio" name="fruit" value="배">배</li>
+	<li><input type="radio" name="fruit" value="바나나">바나나</li>
+</ul>
+
+<button type="button" id="choice">선택</button>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#choice").click(function () {
+		
+		// getter
+		let fruit = $("input[name='fruit']:checked").val();
+		// alert(fruit);
+		
+		// setter
+		$("input[name='fruit']").val( ['바나나'] );		
+	});
+});
+</script>
+
+
+<br/><br/>
+
+<input type="checkbox" id="ch1" name="ch1">그림그리기
+<input type="checkbox" id="ch2" name="ch2">음악듣기
+<br/><br/>
+<button type="button" id="ch">첵크</button>
+
+<script type="text/javascript">
+$("#ch").click(function () {
+	
+	// getter
+	let check = $("#ch1").is(":checked");
+	// alert(check);
+	
+//	let check2 = $("input:checkbox[id='ch2']").is(":checked");
+	let check2 = $("input:checkbox[name='ch2']").is(":checked");
+//	alert(check2);
+
+	// setter
+	$("#ch1").prop("checked", true);
+//	$("#ch1").attr("checked", true);	<- 안되었다고 기억함!	
+	
+});
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

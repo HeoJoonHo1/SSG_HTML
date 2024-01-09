@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<h1>Photo Library</h1>
+
+<p>기본 라인 처리</p>
+<img alt="" src="./images/p01.jpg" class="pic">
+
+<script type="text/javascript">
+$(document).ready(function () {
+	// $(".pic").css("border", "solid 3px #00ff00");	// style="border:"
+	
+	/*
+	$(".pic").css({	
+			"border":"solid 3px",
+			"border-color":"#ff0000"
+	});
+	*/
+	
+	$(".pic").css("border", "solid 3px");
+	$(".pic").css("border-color", "#0000ff");
+	
+});
+</script>
+
+<h1>Life in the water</h1>
+<p>이미지 클릭시 라인처리</p>
+
+<img alt="" src="./images/photo1.jpg" class="photo">
+<img alt="" src="./images/photo2.jpg" class="photo">
+<br/>
+
+<script type="text/javascript">
+$(".photo").click(function () {
+	$(this).css("border", "solid 5px #ff0000");
+});
+</script>
+
+<h1>Room Image</h1>
+<p>마우스 커서가 이미지위로 이동하면, 이미지를 변경</p>
+
+<img alt="" src="./images/b_pic1.jpg" id="pic">
+
+<script type="text/javascript">
+
+$("#pic").mouseover(function () {
+	$(this).attr("src", "./images/b_pic2.jpg");
+});
+
+$("#pic").mouseout(function () {
+	$(this).attr("src", "./images/b_pic1.jpg");
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
